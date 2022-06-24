@@ -12,24 +12,25 @@
     <script th:src="@{/js/fontawesome.min.js}"></script>
 </head>
 <body>
-<div class="uk-container uk-container-large">
-    <nav class="uk-navbar-container uk-navbar-transparent uk-margin-small" uk-navbar>
-        <div class="uk-navbar-center">
+<div class="uk-container uk-container-large ">
+    <nav class="uk-navbar-container uk-navbar-transparent " uk-navbar>
+        <div class="uk-navbar-left">
             <ul class="uk-list uk-list-divider uk-margin-small">
-                <li><img th:src="@{/images/PlanInOneLogo.png}" width="200" height="100" alt=""></li>
                 <li>
-                    <a class="uk-navbar-toggle" href="#">
+                    <a class="uk-navbar-toggle uk-margin-remove" href="#">
                         <span uk-navbar-toggle-icon></span><span class="uk-margin-small-left">Menu</span>
                     </a>
-                    <div class="uk-navbar-dropdown">
+                    <div class="uk-navbar-dropdown uk-margin-remove">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li class="uk-active"><a href="#">Dashboard</a></li>
-                            <li><a href="#">Add Project</a></li>
-                            <li><a href="#">Temporary</a></li>
+                            <li><a th:href="@{/project}">Home Page</a></li>
+                            <li><a th:href="@{/project/list}">Dashboard</a></li>
+                            <li><a th:href="@{/project/create}">Add Project</a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
+        </div>
+        <div class="uk-navbar-center"><img th:src="@{/images/PlanInOneLogo.png}" width="200" height="100" alt="">
         </div>
     </nav>
     <div th:replace="${content}"></div>

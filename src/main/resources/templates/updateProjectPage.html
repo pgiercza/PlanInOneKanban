@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout :: template (~{:: .uk-section})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div class="uk-section">
+    <h1 class="uk-heading-bullet">Update Project</h1>
+    <form th:method="POST" th:action="@{/project/update(id=${updateProject.id})}" th:object="${updateProject}"
+          enctype="multipart/form-data">
+        <div class="uk-margin">
+            <label for="id">Id: </label>
+            <input id="id" class="form-control" type="text" th:field="*{id}" disabled>
+        </div>
+        <div class="uk-margin">
+            <label for="title">Title: </label>
+            <input id="title" class="uk-textarea" type="text" th:field="*{title}">
+            <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="alert alert-danger"></div>
+        </div>
+        <div class="uk-margin">
+            <label for="description">Description: </label>
+            <input id="description" class="uk-textarea" type="text" th:field="*{description}">
+            <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                 class="alert alert-danger"></div>
+        </div>
+        <div class="uk-margin">
+            <label for="status">Status: </label>
+            <select id="status" class="uk-select" th:field="*{status}">
+                <option th:each="p :${statuses}" th:value="${p}" th:text="${p}"></option>
+            </select>
+        </div>
+        <div class="uk-margin">
+            <label for="duedate">Due Date: </label>
+            <input id="duedate" class="form-control" type="date" th:field="*{duedate}">
+            <div th:if="${#fields.hasErrors('duedate')}" th:errors="*{duedate}"
+                 class="alert alert-danger"></div>
+        </div>
+        <div class="uk-margin">
+            <label for="picture">Picture</label>
+            <input id="picture" class="form-control" type="file" name="file" accept="image/png">
+        </div>
+        <div class="uk-margin">
+            <input type="submit" class="uk-button uk-button-default" value="Update">
+            <input onclick='javascript:window.history.back()' value='Cancel' type='button'
+                   class="uk-button uk-button-danger"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+

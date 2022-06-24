@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout :: template (~{:: .uk-section})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div class="uk-section">
+    <h1 class="uk-heading-bullet">Dashboard</h1>
+    <a class="uk-button uk-button-primary uk-width-auto" th:href="@{/project/create}"><i class="fa-solid fa-add"></i>
+        Create new project</a>
+    <a class="uk-button uk-button-default uk-width-auto" th:each="p:${statuses}"
+       th:href="@{/project/list(status=${p})}" th:text="'Show '+ ${p}"></a>
+
+    <div class="uk-child-width-1-4@s uk-text-center uk-margin-small-top" uk-grid>
+        <div class="uk-card">In Progress</div>
+        <div class="uk-card">Backlog</div>
+        <div class="uk-card">On Hold</div>
+        <div class="uk-card">Completed</div>
+    </div>
+    <div class="uk-grid-column-small uk-child-width-1-4@s uk-text-left" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default uk-card-hover  uk-margin-small-bottom uk-card-body"
+                 th:each="project : ${projects}"
+                 th:if="${#strings.equals(project.status, 'InProgress')}">
+
+                <p class="uk-text-center uk-text-bold"><a th:href="@{/project/get(id=${project.id})}"><span
+                        th:text="${project.title}"></span></a></p>
+                <p><span th:text="${project.description}"></span></p>
+
+
+                <a class="uk-button uk-button-primary uk-width-auto"
+                   th:href="@{/project/get(id=${project.id})}">Open</a>
+                <a class="uk-button uk-button-secondary uk-width-auto"
+                   th:href="@{/project/update(id=${project.id})}">Edit</a>
+                <a class="uk-button uk-button-danger uk-width-auto"
+                   th:href="@{/project/delete(id=${project.id})}">Delete</a>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="uk-card uk-card-default uk-card-hover uk-text-center  uk-margin-small-bottom uk-card-body"
+         th:if="${projects.isEmpty()}">
+        No records found. Add some...!
+    </div>
+
+</div>
+</body>
+</html>
