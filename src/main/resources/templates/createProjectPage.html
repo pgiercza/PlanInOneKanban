@@ -6,11 +6,16 @@
 <div class="uk-section">
     <h1 class="uk-heading-bullet">Create new Project</h1>
 
-    <form th:method="POST" th:action="@{/project/create}" th:object="${newProject}" enctype="multipart/form-data">
+    <form th:method="POST" th:action="@{/create}" th:object="${newProject}" enctype="multipart/form-data">
         <div class="uk-margin">
             <label for="title">Title: </label>
             <input id="title" class="uk-textarea" type="text" th:field="*{title}">
             <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="alert alert-danger"></div>
+        </div>
+        <div class="uk-margin">
+            <label for="person">Assigned To: </label>
+            <input id="person" class="uk-textarea" type="text" th:field="*{person}">
+            <div th:if="${#fields.hasErrors('person')}" th:errors="*{person}" class="alert alert-danger"></div>
         </div>
         <div class="uk-margin">
             <label for="description">Description: </label>

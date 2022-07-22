@@ -3,9 +3,9 @@
 <head>
 </head>
 <body>
-<div class="uk-section">
+<div class="uk-section uk-align-center uk-text-center">
     <h1 class="uk-heading-bullet">Delete Selected Project</h1>
-    <form th:method="POST" th:action="@{/project/delete(id=${project.id})}">
+    <form th:method="POST" th:action="@{/delete(id=${project.id})}">
         <div>
             Are You sure to delete Project?
         </div>

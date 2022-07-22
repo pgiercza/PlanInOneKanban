@@ -3,19 +3,11 @@
 <head>
 </head>
 <body>
+
 <div class="uk-section">
     <h1 class="uk-heading-bullet">Selected Project</h1>
-    <div class="row">
-        <div class="col-9">
-            <a class="uk-button uk-button-default"
-               th:href="@{/project/update(id=${project.id})}">Edit</a>
-            <a class="uk-button uk-button-danger"
-               th:href="@{/project/delete(id=${project.id})}">Delete</a>
-            <a class="uk-button uk-button-primary" th:href="@{/project/list}">Back</a>
-        </div>
-    </div>
     <div class="row" style="height: 200px">
-        <img class="img-thumbnail" style="height: 200px; width: 200px" th:src="@{/project/picture(id=${project.id})}"/>
+        <img class="img-thumbnail" style="height: 200px; width: 200px" th:src="@{/picture(id=${project.id})}"/>
     </div>
     <div class="row">
         <div class="col-3">Id:</div>
@@ -30,12 +22,18 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-3">Assigned to:</div>
+        <div class="col-9">
+            <p th:text="${project.person}"></p>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-3">Description:</div>
         <div class="col-9">
             <p th:text="${project.description}"></p>
         </div>
     </div>
-</div>
+
 <div class="row">
     <div class="col-3">Status:</div>
     <div class="col-9">
@@ -48,6 +46,16 @@
         <p th:text="${project.duedate}"></p>
     </div>
 </div>
+    <div class="row">
+        <div class="col-9">
+            <a class="uk-button uk-button-default"
+               th:href="@{/update(id=${project.id})}">Edit</a>
+            <a class="uk-button uk-button-danger"
+               th:href="@{/delete(id=${project.id})}">Delete</a>
+            <a class="uk-button uk-button-primary" th:href="@{/list}">Back</a>
+        </div>
+    </div>
 </div>
+
 </body>
 </html>

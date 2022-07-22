@@ -24,6 +24,11 @@ public class Project implements CrudResource<Integer> {
     @Column(nullable = false)
     @Size(min = 3, max = 50)
     @Pattern(regexp = "[a-zA-Z]+")
+    private String person;
+
+    @Column(nullable = false)
+    @Size(min = 3, max = 50)
+    @Pattern(regexp = "[a-zA-Z]+")
     private String description;
 
     @Column(nullable = false)
@@ -62,6 +67,14 @@ public class Project implements CrudResource<Integer> {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getPerson() {
+        return person;
+    }
+
+    public void setPerson(String person) {
+        this.person = person;
     }
 
     public String getDescription() {
