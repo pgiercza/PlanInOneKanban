@@ -1,3 +1,4 @@
+![](images/screenShotPlanInOne.png)
 Developer Name: Piotr Gierczak
 
 Project Name: PlanInOneKanban
