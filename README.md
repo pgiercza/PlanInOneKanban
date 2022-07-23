@@ -12,7 +12,7 @@ Application can be used for teams and project managament.
 You can create projects and show them on Kanban Board.
 Based on Status of the Project it is splited on 4 collumns, "In Progress", "Backlog", "On Hold", "Completed".
 
-Each ticket has its own title, description, status, due date, and assigned to field. There are simple filters depending on ticket type.
+Each ticket has its own title, description, status, due date, and assigned to field. You can add, edit (including status change) and delete Projects.
 Try it!
 
 Link to application on heroku: https://planinonekanban.herokuapp.com/
